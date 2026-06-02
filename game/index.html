@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#0a0a1a">
+  <title>Draw to Save</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="hud-bar">
+    <div class="hud-left">
+      <span class="hud-title">✏️ DRAW TO SAVE</span>
+    </div>
+    <div class="hud-right">
+      <span class="hud-item" data-action="shop" onclick="if(window.ShopUI)ShopUI.showTab('upgrades')"><span class="coin-icon">⚡</span></span>
+      <span class="hud-item"><span class="coin-icon">🪙</span> <span id="hud-coins">200</span></span>
+      <span class="hud-item"><span class="gem-icon">💎</span> <span id="hud-gems">0</span></span>
+    </div>
+  </div>
+
+  <div id="game-container">
+    <div id="level-display">
+      <div class="label">Level</div>
+      <div class="value" id="level-value">1</div>
+    </div>
+
+    <div id="hp-display">
+      <div class="label">Stickman HP</div>
+      <div class="value" id="hp-value">♥♥♥</div>
+    </div>
+
+    <div id="hud-overlay">
+      <div class="hud-stat"><div class="label">Ink</div><div class="value" id="ink-value">100%</div></div>
+      <div class="hud-stat"><div class="label">Enemies</div><div class="value" id="enemy-count">0</div></div>
+    </div>
+
+    <canvas id="game-canvas"></canvas>
+
+    <div id="button-bar">
+      <button class="game-btn btn-primary" id="play-btn">▶ Play</button>
+      <button class="game-btn btn-restart" id="erase-btn">🧹 Erase</button>
+      <button class="game-btn btn-shop" id="button-shop">🛒 Shop</button>
+      <button class="game-btn btn-upgrade" onclick="if(window.ShopUI){ShopUI.open();ShopUI.showTab('upgrades')}">⚡ Upgrade</button>
+    </div>
+  </div>
+
+  <div class="game-over-box" id="game-over-box">
+    <h2>💀 Stickman Died!</h2>
+    <div class="final-score" id="final-level">Level 1</div>
+    <p style="color:var(--text-secondary);margin-bottom:12px;">Better luck next time!</p>
+    <div class="btn-group">
+      <button class="game-btn btn-primary" id="restart-btn">▶ Retry</button>
+      <button class="game-btn btn-shop" id="shop-btn-go">🛒 Upgrade</button>
+    </div>
+  </div>
+
+  <div class="level-complete-box" id="level-complete-box">
+    <h2>🎉 Saved!</h2>
+    <div class="final-score" id="complete-level">Level 1 Complete</div>
+    <div style="margin:12px 0;color:var(--accent-gold);font-size:18px;" id="reward-display">+50 🪙</div>
+    <div class="btn-group">
+      <button class="game-btn btn-win" id="next-level-btn">▶ Next Level</button>
+    </div>
+  </div>
+
+  <div id="notification"></div>
+
+  <script src="visuals.js"></script>
+  <script src="progression.js"></script>
+  <script src="shop.js"></script>
+  <script src="ads-manager.js"></script>
+  <script src="challenges-system.js"></script>
+  <script src="store-rotator.js"></script>
+  <script src="retention-system.js"></script>
+  <script src="collectibles-system.js"></script>
+  <script src="tutorial-system.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>
